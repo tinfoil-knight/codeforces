@@ -3,6 +3,8 @@
 using namespace std;
 
 int main() {
-  // Code goes here
+  float loc;
+  cin >> loc;
+  cout << ceil(loc / 5) << endl;
   return 0;
 }
