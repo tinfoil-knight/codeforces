@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#define LOG(x) cout << x << "\n"
 
 using namespace std;
 

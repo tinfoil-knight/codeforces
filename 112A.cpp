@@ -6,8 +6,7 @@ using namespace std;
 
 int main() {
   string a, b;
-  cin >> a;
-  cin >> b;
+  cin >> a >> b;
 
   transform(a.begin(), a.end(), a.begin(), ::toupper);
   transform(b.begin(), b.end(), b.begin(), ::toupper);
