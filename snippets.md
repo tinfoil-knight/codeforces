@@ -72,6 +72,40 @@ string s = "Hello";
 vector<char> arr(s.begin(), s.end());
 ```
 
+**String has Substring**
+```c++
+bool stringHasSub(string str, string substr) {
+  return str.find(substr) != string::npos ? true : false;
+}
+```
+
+**Smallest Digit, Largest Digit**
+```c++
+int minDigit(int n) {
+  int smallest = 9;
+
+  while (n) {
+    int r = n % 10;
+    smallest = min(r, smallest);
+    n = n / 10;
+  }
+
+  return smallest;
+}
+
+int maxDigit(int n) {
+  int largest = 0;
+
+  while (n) {
+    int r = n % 10;
+    largest = min(r, largest);
+    n = n / 10;
+  }
+
+  return largest;
+}
+```
+
 **Benchmarking**
 ```c++
 // chrono
