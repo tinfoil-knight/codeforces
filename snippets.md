@@ -106,22 +106,23 @@ int maxDigit(int n) {
 }
 ```
 
+**Notes**
+- When using count to find a target, use single-quotes instead of double quotes when matching a single character.
+- Use `.empty()` to check if a container is empty. Not all containers can calculate their size in constant time.
+- Pass containers with large amount of data using pointers to prevent copying. If you want to avoid changing the contents of the original container, use `const`.
+- Some functions are present both in `algorithm` header and containers. Using container specific functions is recommended.
+- When using `.push_back()` multiple times, use `reserve(n)` if max limit of no. of elements is known to avoid using double the memory.
+
 **Benchmarking**
 ```c++
 // chrono
-class Timer {
- public:
-  Timer() { start = chrono::high_resolution_clock::now(); }
-  ~Timer() {
-    end = chrono::high_resolution_clock::now();
-    chrono::high_resolution_clock::duration d = end - start;
-    cout
-        << chrono::duration_cast<chrono::microseconds>(d).count()
-        << " us" << endl;
-  }
-
-  chrono::high_resolution_clock::time_point start;
-  chrono::high_resolution_clock::time_point end;
-};
+// Before Process
+const auto t1 = std::chrono::high_resolution_clock::now();
+/* Process Goes Here */
+// After Process
+const auto t2 = std::chrono::high_resolution_clock::now();
+const std::chrono::duration<double, std::milli> ms = t2 - t1;
+// Print
+std::cout << ms.count() << " ms\n";
 ```
 
