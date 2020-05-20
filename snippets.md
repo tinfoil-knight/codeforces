@@ -30,14 +30,6 @@ while (cin >> input){
 }
 ```
 
-**Loop over a vector of integers**
-```c++
-// iostream, vector
-for (int i : arr){
-    cout << i << endl;
-}
-```
-
 **When using file for IO**
 ```c++
 freopen("input.txt", "r", stdin);
@@ -106,12 +98,26 @@ int maxDigit(int n) {
 }
 ```
 
-**Notes**
-- When using count to find a target, use single-quotes instead of double quotes when matching a single character.
-- Use `.empty()` to check if a container is empty. Not all containers can calculate their size in constant time.
-- Pass containers with large amount of data using pointers to prevent copying. If you want to avoid changing the contents of the original container, use `const`.
-- Some functions are present both in `algorithm` header and containers. Using container specific functions is recommended.
-- When using `.push_back()` multiple times, use `reserve(n)` if max limit of no. of elements is known to avoid using double the memory.
+**Creating an iterator**
+```c++
+set<int>::iterator it = s.begin();
+// OR
+auto it = s.begin();
+// Print 1st element of set
+cout << *it << "\n";
+// Print last element of set
+it = s.end(); it--;
+cout << *it << "\n";
+```
+
+**Printing a Map**
+```c++
+unordered_map<string, int>::iterator itr;
+for (itr = kv.begin(); itr != kv.end(); ++itr) {
+  cout << itr->first << '\t';
+  cout << itr->second << '\n';
+}
+```
 
 **Benchmarking**
 ```c++
@@ -126,3 +132,28 @@ const std::chrono::duration<double, std::milli> ms = t2 - t1;
 std::cout << ms.count() << " ms\n";
 ```
 
+**Notes**
+- When using count to find a target, use single-quotes instead of double quotes when matching a single character.
+- Use `.empty()` to check if a container is empty. Not all containers can calculate their size in constant time.
+- Pass containers with large amount of data using pointers to prevent copying. If you want to avoid changing the contents of the original container, use `const`.
+- Some functions are present both in `algorithm` header and containers. Using container specific functions is recommended.
+- When using `.push_back()` multiple times, use `reserve(n)` if max limit of no. of elements is known to avoid using double the memory.
+- `unordered_map`, `unordered_set` are faster compared to `map` and `set` respectively.
+- `bitset` are array-like structures with elements only as 0 or 1. `count` on a bitset returns the number of 1s in the array. BITWISE operations like `&`, `|`, `^` can be used. They are faster than normal arrays due to less memory requirement.
+- More data structures in C++
+  - Deque - Double Sided Queue
+  - Stack (LIFO)
+  - Queue (FIFO)
+  - Priority Queue - Retrieve and remove the max or min element
+
+**Useful Macros & TypeDefs**
+```c++
+#define PB push_back
+#define MP make_pair
+#define REP(i,a,b) for (int i = a; i < b; i++)
+```
+```c++
+typedef long long ll;
+typedef vector<int> vi;
+typedef pair<int,int> pi;
+```
