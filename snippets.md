@@ -119,6 +119,16 @@ for (itr = kv.begin(); itr != kv.end(); ++itr) {
 }
 ```
 
+**Take an element directly into array from STDIN**
+```c++
+int n;
+cin >> n;
+vector<int> a(n);
+while(n--){
+  cin >> a[i];
+}
+```
+
 **Benchmarking**
 ```c++
 // chrono
@@ -139,6 +149,7 @@ std::cout << ms.count() << " ms\n";
 - Some functions are present both in `algorithm` header and containers. Using container specific functions is recommended.
 - When using `.push_back()` multiple times, use `reserve(n)` if max limit of no. of elements is known to avoid using double the memory.
 - `unordered_map`, `unordered_set` are faster compared to `map` and `set` respectively.
+- `accumulate` uses the type of init value to determine its result. While dealing with larger nums, cast the init value to long.
 - `bitset` are array-like structures with elements only as 0 or 1. `count` on a bitset returns the number of 1s in the array. BITWISE operations like `&`, `|`, `^` can be used. They are faster than normal arrays due to less memory requirement.
 - More data structures in C++
   - Deque - Double Sided Queue
