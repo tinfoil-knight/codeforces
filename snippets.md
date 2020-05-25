@@ -38,9 +38,9 @@ freopen("output.txt", "w", stdout);
 
 **Fast IO**
 ```c++
-ios_base::sync_with_stdio(false);
-cin.tie(NULL);
-// cout << “\n”;
+ios::sync_with_stdio(false);
+cin.tie(nullptr);
+// cout << '\n';
 ```
 
 **Reverse Sort**
@@ -117,10 +117,12 @@ for (itr = kv.begin(); itr != kv.end(); ++itr) {
   cout << itr->first << '\t';
   cout << itr->second << '\n';
 }
+// Or .first, .second can be used with for (auto x:kv) loop
 ```
 
 **Take an element directly into array from STDIN**
 ```c++
+// vector
 int n;
 cin >> n;
 vector<int> a(n);
